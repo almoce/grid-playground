@@ -64,9 +64,7 @@ jobs:
         # Uses your package.json scripts, e.g. "build": "next build"
         run: bun run build
 
-      - name: Export static site
-        # Ensure you have "export": "next export" in package.json
-        run: bun run export
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
