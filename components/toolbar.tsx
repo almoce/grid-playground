@@ -1,7 +1,7 @@
 "use client"
 
 import type { Block, GridConfig } from "./grid-playground"
-import { Plus, Trash2, Settings2 } from "lucide-react"
+import { Plus, Trash2, Settings2, Shuffle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { EditBlock } from "./edit-block"
@@ -9,6 +9,7 @@ import { EditBlock } from "./edit-block"
 interface ToolbarProps {
   onAddBlock: () => void
   onClearAll: () => void
+  onGenerate: () => void
   selectedBlocks: Block[]
   onUpdateBlock: (id: string, updates: Partial<Block>) => void
   onDeleteBlocks: (ids: string[]) => void
@@ -18,6 +19,7 @@ interface ToolbarProps {
 export function Toolbar({
   onAddBlock,
   onClearAll,
+  onGenerate,
   selectedBlocks,
   onUpdateBlock,
   onDeleteBlocks,
@@ -57,6 +59,15 @@ export function Toolbar({
           >
             <Trash2 className="h-4 w-4" />
             <span className="hidden sm:inline">Clear</span>
+          </Button>
+          <Button
+            onClick={onGenerate}
+            variant="outline"
+            size="sm"
+            className="gap-1.5 bg-transparent"
+          >
+            <Shuffle className="h-4 w-4" />
+            <span className="hidden sm:inline">Randomize</span>
           </Button>
 
           {selectedBlocks.length > 0 && (

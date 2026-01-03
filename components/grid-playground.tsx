@@ -11,6 +11,7 @@ import {
   MouseSensor,
   TouchSensor,
 } from "@dnd-kit/core"
+import { generateLayout } from "@/lib/layout-generator"
 import { GridOverlay } from "./grid-overlay"
 import { GridBlock } from "./grid-block"
 import { GridHeader } from "./grid-header"
@@ -234,6 +235,12 @@ export function GridPlayground() {
     setSelectedBlockIds([])
   }, [])
 
+  const handleGenerate = useCallback(() => {
+    const newBlocks = generateLayout(gridConfig, COLORS)
+    setBlocks(newBlocks)
+    setSelectedBlockIds([])
+  }, [gridConfig])
+
   const getGutterClass = (gutter: number) => {
     const gutterMap: Record<number, string> = {
       0: "gap-0",
@@ -266,6 +273,7 @@ export function GridPlayground() {
           <Toolbar
             onAddBlock={addBlock}
             onClearAll={clearAll}
+            onGenerate={handleGenerate}
             selectedBlocks={blocks.filter((b) => selectedBlockIds.includes(b.id))}
             onUpdateBlock={updateBlock}
             onDeleteBlocks={(ids) => deleteBlock(ids)}
