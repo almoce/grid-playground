@@ -1,5 +1,7 @@
 # Grid Playground
 
+![Preview](./public/preview.png)
+
 An interactive playground for learning and experimenting with CSS Grid layouts using Tailwind CSS. Visual building, code generation, and advanced grid controls.
 
 ## Features

@@ -1,6 +1,6 @@
 "use client"
 
-import { Columns3Cog, FileBracesCorner } from "lucide-react"
+import { Code, TableColumnsSplit } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { GridConfig } from "./grid-playground"
 
@@ -52,7 +52,7 @@ export function GridHeader({
             variant={showSettings ? "default" : "secondary"}
             className="min-h-[44px] gap-2"
           >
-            <Columns3Cog className="h-4 w-4"/> 
+            <TableColumnsSplit className="h-4 w-4"/> 
             <span className="hidden sm:inline">Grid</span>
           </Button>
           <Button
@@ -60,7 +60,7 @@ export function GridHeader({
             variant={showCode ? "default" : "secondary"}
             className="min-h-[44px] gap-2"
           >
-            <FileBracesCorner className="h-4 w-4"/> 
+            <Code className="h-4 w-4"/> 
             <span className="hidden sm:inline">Code</span>
           </Button>
         </div>
